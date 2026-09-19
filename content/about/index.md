@@ -36,7 +36,8 @@ questions, challenge my reasoning, and turn what I have said into something read
 The ideas, arguments, engineering decisions, and opinions expressed here are mine. AI is
 part of the toolchain I use to develop and communicate them.
 
-I'll have more to say about that process in a separate article.
+I've written more about that process in
+[**How AI Let Me Keep Building**](/posts/how-ai-let-me-keep-building/).
 
 ## Previously
 
