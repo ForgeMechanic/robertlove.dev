@@ -1,6 +1,6 @@
 baseURL: 'https://RobertLove.dev/'
-languageCode: en-us
-title: Rob's Technology Corner
+locale: en-us
+title: Robert Love
 author: Robert Love
 paginate: 5
 theme: PaperMod
@@ -17,20 +17,23 @@ minify:
 
 params:
   env: production
-  description: "The blog of Robert Love"
-  keywords: ["AWS",".Net","C#","Go","GoLang"]
+  description: "Software architecture, compilers, systems engineering, developer tooling, and the process of building things that make other things possible."
+  keywords: ["compilers", "programming languages", "systems programming", "developer tooling", "software architecture", "binary formats", "AI-assisted engineering"]
   author: "Robert Love"
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
 
+  mainSections:
+    - posts
+
   ShowReadingTime: true
-  ShowShareButtons: true
-  ShareButtons: ["twitter","linkedin","facebook","reddit"]
+  ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowWordCount: true
+  ShowToc: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   disableSpecial1stPost: true
@@ -43,51 +46,38 @@ params:
   tocopen: false
 
   editPost:
-    URL: "https://github.com/rlove/rlove.github.io/blob/main/content/"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-
-  homeInfoParams:
-      enabled: true
-      Title: "The blog of Robert Love" # optional default will be site title
-      Content: |
-       - Which Robert Love [(disambiguation)](/posts/whoisrobertlove/).
-       - &nbsp;
-       - [RSS Site Feed](index.xml)
+    URL: "https://github.com/ForgeMechanic/rlove.github.io/blob/main/content/"
+    Text: "Suggest Changes"
+    appendFilePath: true
 
   socialIcons:
+    - name: Github
+      url: "https://github.com/ForgeMechanic"
     - name: email
       url: "https://mailhide.io/e/SPjGlpBK"
-    - name: twitter
-      url: "https://twitter.com/RobertLoveDev"
-    - name: mastodon
-      url: https://hachyderm.io/@rlove
     - name: stackoverflow
       url: "https://stackoverflow.com/users/93161/robert-love"
     - name: linkedin
-      url:  "https://www.linkedin.com/in/robjlove/"
-    - name: Github
-      url: "https://github.com/rlove"
-
+      url: "https://www.linkedin.com/in/robjlove/"
 
 outputs:
   home:
     - HTML
     - RSS
-    - JSON # is necessary
+    - JSON
 
 menu:
   main:
-    - identifier: archives
-      name: archives
-      url: /archives/
+    - identifier: writing
+      name: Writing
+      url: /posts/
       weight: 10
-#   - identifier: categories
-#      name: categories
-#      url: /categories/
-#      weight: 20
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 20
     - identifier: search
-      name: search
+      name: Search
       url: /search/
       weight: 30
 
@@ -96,7 +86,6 @@ pygmentsUseClasses: true
 markup:
   highlight:
     noClasses: false
-    # anchorLineNos: true
     codeFences: true
     guessSyntax: true
     lineNos: true
