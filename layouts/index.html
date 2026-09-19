@@ -1,0 +1,80 @@
+{{- define "main" }}
+
+<article class="home">
+
+  <section class="home-intro">
+    <h1 class="home-name">Robert Love</h1>
+    <p>
+      I build software tools and systems, with a particular interest in compilers,
+      programming languages, software architecture, binary formats, and the machinery
+      underneath the abstractions developers use every day.
+    </p>
+    <p>
+      Much of my current work explores a recurring question: how can we turn difficult
+      engineering knowledge into tools that make the next problem easier to solve?
+    </p>
+    <p>
+      This site is where I write about that work, the experiments behind it, and the
+      ideas that survive contact with implementation.
+    </p>
+    <p class="home-intro-more">
+      <a href="{{ "about/" | absURL }}">More about me &rarr;</a>
+    </p>
+  </section>
+
+  {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{- $posts = where $posts "Params.hiddenInHomeList" "!=" "true" }}
+  {{- if $posts }}
+  <section class="home-section home-writing">
+    <div class="home-section-head">
+      <h2>Recent writing</h2>
+      <a class="home-section-link" href="{{ "posts/" | absURL }}">All writing &rarr;</a>
+    </div>
+    <ul class="home-post-list">
+      {{- range first 4 $posts }}
+      <li class="home-post">
+        <a class="home-post-title" href="{{ .Permalink }}">{{ .Title }}</a>
+        {{- if not (.Param "hideMeta") }}
+        <span class="home-post-date">{{ .Date.Format (site.Params.DateFormat | default "January 2, 2006") }}</span>
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  <section class="home-section home-areas">
+    <div class="home-section-head">
+      <h2>Areas of work</h2>
+    </div>
+    <ul class="home-areas-list">
+      <li>Compiler and language infrastructure</li>
+      <li>Source transformation and provenance</li>
+      <li>Binary formats and executable formats</li>
+      <li>Developer tooling</li>
+      <li>Software architecture</li>
+      <li>AI-assisted engineering</li>
+    </ul>
+  </section>
+
+  {{- $projects := where site.RegularPages "Section" "projects" }}
+  {{- if $projects }}
+  <section class="home-section home-projects">
+    <div class="home-section-head">
+      <h2>Projects</h2>
+      <a class="home-section-link" href="{{ "projects/" | absURL }}">All projects &rarr;</a>
+    </div>
+    <ul class="home-post-list">
+      {{- range first 4 $projects }}
+      <li class="home-post">
+        <a class="home-post-title" href="{{ .Permalink }}">{{ .Title }}</a>
+        {{- with .Description }}<span class="home-post-desc">{{ . }}</span>{{ end }}
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+</article>
+
+{{- end }}{{/* end main */}}

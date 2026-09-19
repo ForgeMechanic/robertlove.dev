@@ -1,0 +1,144 @@
+/* ---------------------------------------------------------------------------
+   RobertLove.dev — restrained structural styling on top of PaperMod.
+   Goals: stronger hierarchy, generous whitespace, readable long-form text.
+   --------------------------------------------------------------------------- */
+
+/* Comfortable measure for long-form technical reading. */
+.post-content {
+  line-height: 1.75;
+}
+
+.post-content p,
+.post-content li {
+  max-width: 46rem;
+}
+
+/* Keep metadata legible — avoid tiny text. */
+.post-meta,
+.entry-footer,
+.home-post-date {
+  font-size: 0.9rem;
+}
+
+/* Obvious, accessible links inside prose. */
+.post-content a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Visible focus states for keyboard navigation. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ------------------------------- Homepage -------------------------------- */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.home-intro {
+  padding-bottom: 0.5rem;
+}
+
+.home-name {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.home-intro p {
+  max-width: 46rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.home-intro-more {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.home-section {
+  border-top: 1px solid var(--border);
+  padding-top: 1.75rem;
+}
+
+.home-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.home-section-head h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.home-section-link {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.home-post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.home-post {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.home-post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.home-post-date,
+.home-post-desc {
+  color: var(--secondary);
+}
+
+/* Areas of work: a simple, non-marketing subject list. */
+.home-areas-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.5rem 1.5rem;
+}
+
+.home-areas-list li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--content);
+}
+
+.home-projects-empty {
+  max-width: 46rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  .home-name {
+    font-size: 2rem;
+  }
+  .home-section-head {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
